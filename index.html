@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress bar</title>
+    <style>
+        /* reset */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .margin-13 {
+            margin-top: 13px;
+            margin-bottom: 13px;
+        }
+
+        .progress-label {
+            color: #333333;
+            font-family: "Roboto", Sans-serif;
+            font-size: 16px;
+        }
+
+        .progressBar {
+            height: 20px;
+            width: 360px;
+            background: #dddddd;
+            position: relative;
+            line-height: 20px;
+            font-family: "Roboto", Sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .progressLine {
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #344a5f;
+            padding-right: 10px;
+            padding-left: 5px;
+            text-align: right;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <span class="progress-label">Ease Of Use</span>
+        <div class="progressBar">
+            <div class="progressLine" id="myBar"></div>
+        </div>
+    </div>
+    <div class="margin-13">
+        <span class="progress-label">Specifications</span>
+        <div class="progressBar">
+            <div class="progressLine" id="myBar2"></div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <span class="progress-label">Value For Money</span>
+        <div class="progressBar">
+            <div class="progressLine" id="myBar3"></div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const bar1 = document.querySelector("#myBar");
+        const bar2 = document.querySelector("#myBar2");
+        const bar3 = document.querySelector("#myBar3");
+        const progressBar = (num, count) => {
+            let counter = 0;
+            setInterval(() => {
+                if (counter == count) {
+                    clearInterval();
+                } else {
+                    counter += 1;
+                    num.textContent = counter + "%";
+                    num.style.width = counter + "%";
+                }
+            }, 30);
+        }
+        progressBar(bar1, 99);
+        progressBar(bar2, 97);
+        progressBar(bar3, 99);
+
+    </script>
+</body>
+
+</html>
